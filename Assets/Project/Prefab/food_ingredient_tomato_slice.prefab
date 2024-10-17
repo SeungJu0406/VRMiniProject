@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 319992836}
   - component: {fileID: 319992837}
   - component: {fileID: 7194244893662479565}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: food_ingredient_tomato_slice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -294,7 +294,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4453e3530442fa342a6e1bd2669190b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: dbde342e5e9e51c478fc9c9c1bc75179, type: 2}
   stackPivot: {fileID: 0}
+  parentPlate: {fileID: 0}
 --- !u!1 &2836656911560328027
 GameObject:
   m_ObjectHideFlags: 0
