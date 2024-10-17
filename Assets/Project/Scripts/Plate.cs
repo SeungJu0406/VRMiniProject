@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.VisualScripting;
+using UnityEngine.Events;
 
 
 [System.Serializable]
@@ -17,8 +18,11 @@ public class Plate : MonoBehaviour
     [SerializeField] List<IngredientInfo> stackList = new List<IngredientInfo>(10);
 
     [SerializeField] Ingredient topIngredient;
+    public Ingredient TopIngredient { get { return topIngredient; } set { topIngredient = value; OnChangeTop?.Invoke(this); } }
+    public event UnityAction<Plate> OnChangeTop;
     [SerializeField] Ingredient bottomIngredient;
-
+    public Ingredient BottomIngredient { get {  return bottomIngredient; } set { bottomIngredient = value; OnChangeBottom?.Invoke(this); } } 
+    public event UnityAction<Plate> OnChangeBottom;
     public void AddStack(Ingredient ingredient)
     {
         ProcessAddStack(ingredient);
@@ -58,27 +62,31 @@ public class Plate : MonoBehaviour
     }
     void ProcessAddStack(Ingredient ingredient)
     {
-        ingredient.parent = topIngredient;
+        ingredient.SubscribePlateEvent(this);
+
+        ingredient.parent = TopIngredient;
         if (ingredient.parent != null)
         {        
             ingredient.parent.child = ingredient;
         }
 
         if (stackList.Count == 0)
-            bottomIngredient = ingredient;
-        topIngredient = ingredient;
+            BottomIngredient = ingredient;
+        TopIngredient = ingredient;
 
-
+        
     }
     void ProcessToRemoveStack(Ingredient ingredient)
     {
-        if(stackList.Count == 0)
-            bottomIngredient = null;
-        topIngredient = ingredient.parent;
+        ingredient.UnSubscribePlateEvent(this);
+
+        if (stackList.Count == 0)
+            BottomIngredient = null;
+        TopIngredient = ingredient.parent;
         if(ingredient.parent != null)
         {
             ingredient.parent.child = null;
             ingredient.parent = null;
-        }           
+        }      
     }
 }

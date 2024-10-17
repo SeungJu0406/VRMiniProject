@@ -51,7 +51,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 6
   m_AttachTransform: {fileID: 3138277136575526186}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -143,5 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e4286d061ea9742b50bb73b68bcc17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bugerStackPrefab: {fileID: 3138277136575526189}
   childStack: {fileID: 0}
+  plate: {fileID: 0}
+  ingredient: {fileID: 0}
