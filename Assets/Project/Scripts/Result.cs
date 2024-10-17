@@ -62,11 +62,20 @@ public class Result : MonoBehaviour
 
         _resultList.Sort((s1, s2) => s1.Data.ID.CompareTo(s2.Data.ID));
         for (int i = 1; i < _resultList.Count - 1; i++)
-        {
-            IngredientInfo temp = new IngredientInfo();
-            temp.Data = _resultList[i].Data;
-            temp.Count = Util.Random(0, 2);
-            _resultList[i] = temp;
+        {          
+            int randomCount = Util.Random(0, 2);
+            if (randomCount > 0)
+            {
+                IngredientInfo temp = new IngredientInfo();
+                temp.Data = _resultList[i].Data;
+                temp.Count = randomCount;
+                _resultList[i] = temp;
+            }
+            else
+            {
+                _resultList.RemoveAt(i);
+                i--;
+            }
         }
     }
 }
