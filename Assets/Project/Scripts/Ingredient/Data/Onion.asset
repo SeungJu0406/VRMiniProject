@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e185617175ec524790b33ab70fa0ef7, type: 3}
   m_Name: Onion
   m_EditorClassIdentifier: 
+  Name: "\uC591\uD30C"

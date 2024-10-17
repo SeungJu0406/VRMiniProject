@@ -22,7 +22,7 @@ public class BurgerStack : MonoBehaviour
     IEnumerator CreateStackRoutine(Ingredient ingredient)
     {
         yield return Manager.Delay.Get(0.2f);
-        childStack = Pool.Stack.GetPool(ingredient.stackPivot);
+        childStack = Pool.Stack?.GetPool(ingredient.stackPivot);
         childStack.plate = this.plate;
         createStackRoutine = null;
 
@@ -53,6 +53,6 @@ public class BurgerStack : MonoBehaviour
         plate.RemoveStack(ingredient);
         ingredient = null;
         if (childStack != null)
-            Pool.Stack.ReturnPool(childStack);
+            Pool.Stack?.ReturnPool(childStack);
     }
 }

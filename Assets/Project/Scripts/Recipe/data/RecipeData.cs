@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RecipeData : MonoBehaviour
+[CreateAssetMenu(menuName = "Recipe")]
+public class RecipeData :ScriptableObject
 {
-        
+    public List<IngredientInfo> recipeList;
 }

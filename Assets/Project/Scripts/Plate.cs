@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.VisualScripting;
 using UnityEngine.Events;
+using System.Text;
 
 
 [System.Serializable]
@@ -23,6 +24,8 @@ public class Plate : MonoBehaviour
     [SerializeField] Ingredient bottomIngredient;
     public Ingredient BottomIngredient { get {  return bottomIngredient; } set { bottomIngredient = value; OnChangeBottom?.Invoke(this); } } 
     public event UnityAction<Plate> OnChangeBottom;
+
+    StringBuilder sb = new StringBuilder();
     public void AddStack(Ingredient ingredient)
     {
         ProcessAddStack(ingredient);
@@ -60,6 +63,17 @@ public class Plate : MonoBehaviour
 
         ProcessToRemoveStack(ingredient);
     }
+    public string GetValueToString()
+    { 
+        stackList.Sort((s1,s2) => s1.data.ID.CompareTo(s2.data.ID));
+        sb.Clear();
+        foreach (IngredientInfo ingredient in stackList) 
+        {
+            sb.Append($"{ingredient.data.Name},{ingredient.count}");
+        }
+        return sb.ToString();
+    }
+
     void ProcessAddStack(Ingredient ingredient)
     {
         ingredient.SubscribePlateEvent(this);

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e185617175ec524790b33ab70fa0ef7, type: 3}
-  m_Name: BottomBun
+  m_Script: {fileID: 11500000, guid: 89fc347930e2d534e963992f4ba14da1, type: 3}
+  m_Name: BasicBurger
   m_EditorClassIdentifier: 
-  Name: "\uC544\uB7AB \uBE75"
+  recipeList: []
