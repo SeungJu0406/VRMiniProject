@@ -4,26 +4,26 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class BurgerStack : MonoBehaviour
 {
-    [SerializeField] BurgerStack childStack;
-    [SerializeField] Plate plate;
-    [SerializeField] Ingredient ingredient;
+    [SerializeField] BurgerStack _childStack;
+    [SerializeField] Plate _plate;
+    [SerializeField] Ingredient _ingredient;
     private void Awake()
     {
-        plate = GetComponentInParent<Plate>();
+        _plate = GetComponentInParent<Plate>();
     }
 
     public void OnStackEnter(SelectEnterEventArgs args)
     {
-        ingredient = args.interactableObject.transform.GetComponent<Ingredient>();
-        if (ingredient == null) return;
+        _ingredient = args.interactableObject.transform.GetComponent<Ingredient>();
+        if (_ingredient == null) return;
         ProcessInStack();
     }
     Coroutine createStackRoutine;
     IEnumerator CreateStackRoutine(Ingredient ingredient)
     {
         yield return Manager.Delay.Get(0.2f);
-        childStack = Pool.Stack?.GetPool(ingredient.stackPivot);
-        childStack.plate = this.plate;
+        _childStack = Pool.Stack?.GetPool(ingredient.StackPivot);
+        _childStack._plate = this._plate;
         createStackRoutine = null;
 
     }
@@ -41,18 +41,18 @@ public class BurgerStack : MonoBehaviour
 
     void ProcessInStack()
     {
-        plate.AddStack(ingredient);
-        if (ingredient.stackPivot != null)
+        _plate.AddStack(_ingredient);
+        if (_ingredient.StackPivot != null)
         {
-            createStackRoutine = createStackRoutine == null ? StartCoroutine(CreateStackRoutine(ingredient)) : createStackRoutine;
+            createStackRoutine = createStackRoutine == null ? StartCoroutine(CreateStackRoutine(_ingredient)) : createStackRoutine;
         }
     }
 
     void ProcessOutStack()
     {
-        plate.RemoveStack(ingredient);
-        ingredient = null;
-        if (childStack != null)
-            Pool.Stack?.ReturnPool(childStack);
+        _plate.RemoveStack(_ingredient);
+        _ingredient = null;
+        if (_childStack != null)
+            Pool.Stack?.ReturnPool(_childStack);
     }
 }

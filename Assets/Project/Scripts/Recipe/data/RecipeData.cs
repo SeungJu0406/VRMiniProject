@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Recipe")]
 public class RecipeData :ScriptableObject
 {
-    public List<IngredientInfo> recipeList;
+    public List<IngredientInfo> RecipeList;
 }

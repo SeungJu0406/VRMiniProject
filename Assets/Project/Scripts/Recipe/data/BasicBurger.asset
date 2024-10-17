@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fc347930e2d534e963992f4ba14da1, type: 3}
   m_Name: BasicBurger
   m_EditorClassIdentifier: 
-  recipeList: []
+  RecipeList:
+  - Data: {fileID: 11400000, guid: d3aa9d610f0dd754b95fceec641b16ae, type: 2}
+    Count: 1
+  - Data: {fileID: 11400000, guid: 58fb26fd37473684c9a38241affd2109, type: 2}
+    Count: 1
+  - Data: {fileID: 11400000, guid: 82e86a1d35d10c34d8f9ed2d833e8d80, type: 2}
+    Count: 1
+  - Data: {fileID: 11400000, guid: d64b765d26478c04cabb0052f20f8bbf, type: 2}
+    Count: 1
+  - Data: {fileID: 11400000, guid: dbde342e5e9e51c478fc9c9c1bc75179, type: 2}
+    Count: 1
+  - Data: {fileID: 11400000, guid: 8b3b96a0b48fe614185aa9fbb978b7bb, type: 2}
+    Count: 1

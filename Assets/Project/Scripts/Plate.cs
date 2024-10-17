@@ -10,81 +10,81 @@ using System.Text;
 [System.Serializable]
 public struct IngredientInfo
 {
-    public IngredientData data;
-    public int count;
+    public IngredientData Data;
+    public int Count;
 }
 
 public class Plate : MonoBehaviour
 {
-    [SerializeField] List<IngredientInfo> stackList = new List<IngredientInfo>(10);
+    [SerializeField] List<IngredientInfo> _stackList = new List<IngredientInfo>(10);
 
-    [SerializeField] Ingredient topIngredient;
-    public Ingredient TopIngredient { get { return topIngredient; } set { topIngredient = value; OnChangeTop?.Invoke(this); } }
+    [SerializeField] Ingredient _topIngredient;
+    public Ingredient TopIngredient { get { return _topIngredient; } set { _topIngredient = value; OnChangeTop?.Invoke(this); } }
     public event UnityAction<Plate> OnChangeTop;
-    [SerializeField] Ingredient bottomIngredient;
-    public Ingredient BottomIngredient { get {  return bottomIngredient; } set { bottomIngredient = value; OnChangeBottom?.Invoke(this); } } 
+    [SerializeField] Ingredient _bottomIngredient;
+    public Ingredient BottomIngredient { get {  return _bottomIngredient; } set { _bottomIngredient = value; OnChangeBottom?.Invoke(this); } } 
     public event UnityAction<Plate> OnChangeBottom;
 
-    StringBuilder sb = new StringBuilder();
+    StringBuilder _sb = new StringBuilder();
     public void AddStack(Ingredient ingredient)
     {
         ProcessAddStack(ingredient);
 
-        int index = stackList.FindIndex(info => info.data.Equals(ingredient.data));
+        int index = _stackList.FindIndex(info => info.Data.Equals(ingredient.Data));
         if (index != -1)
         {          
-            IngredientInfo temp = stackList[index];
-            temp.count++;
-            stackList[index] = temp;
+            IngredientInfo temp = _stackList[index];
+            temp.Count++;
+            _stackList[index] = temp;
         }
         else
         {
             IngredientInfo ingredientInfo = new IngredientInfo();
-            ingredientInfo.data = ingredient.data;
-            ingredientInfo.count = 1;
-            stackList.Add(ingredientInfo);
+            ingredientInfo.Data = ingredient.Data;
+            ingredientInfo.Count = 1;
+            _stackList.Add(ingredientInfo);
         }
     }
 
     public void RemoveStack(Ingredient ingredient)
     {
-        int index = stackList.FindIndex(info => info.data.Equals(ingredient.data));
+        int index = _stackList.FindIndex(info => info.Data.Equals(ingredient.Data));
         
-        if (stackList[index].count > 1)
+        if (_stackList[index].Count > 1)
         {
-            IngredientInfo temp = stackList[index];
-            temp.count--;
-            stackList[index] = temp;
+            IngredientInfo temp = _stackList[index];
+            temp.Count--;
+            _stackList[index] = temp;
         }
-        else if (stackList[index].count == 1)
+        else if (_stackList[index].Count == 1)
         {
-            stackList.RemoveAt(index);
+            _stackList.RemoveAt(index);
         }
 
         ProcessToRemoveStack(ingredient);
     }
     public string GetValueToString()
     { 
-        stackList.Sort((s1,s2) => s1.data.ID.CompareTo(s2.data.ID));
-        sb.Clear();
-        foreach (IngredientInfo ingredient in stackList) 
+        _stackList.Sort((s1,s2) => s1.Data.ID.CompareTo(s2.Data.ID));
+        _sb.Clear();
+        foreach (IngredientInfo ingredient in _stackList) 
         {
-            sb.Append($"{ingredient.data.Name},{ingredient.count}");
+            _sb.Append($"{ingredient.Data.Name},{ingredient.Count}");
         }
-        return sb.ToString();
+        return _sb.ToString();
     }
 
     void ProcessAddStack(Ingredient ingredient)
     {
         ingredient.SubscribePlateEvent(this);
 
-        ingredient.parent = TopIngredient;
-        if (ingredient.parent != null)
+        ingredient.Parent = TopIngredient;
+        if (ingredient.Parent != null)
         {        
-            ingredient.parent.child = ingredient;
+            ingredient.Parent.Child = ingredient;
         }
 
-        if (stackList.Count == 0)
+        if (_stackList.Count == 0)
             BottomIngredient = ingredient;
         TopIngredient = ingredient;
 
@@ -94,13 +94,13 @@ public class Plate : MonoBehaviour
     {
         ingredient.UnSubscribePlateEvent(this);
 
-        if (stackList.Count == 0)
+        if (_stackList.Count == 0)
             BottomIngredient = null;
-        TopIngredient = ingredient.parent;
-        if(ingredient.parent != null)
+        TopIngredient = ingredient.Parent;
+        if(ingredient.Parent != null)
         {
-            ingredient.parent.child = null;
-            ingredient.parent = null;
+            ingredient.Parent.Child = null;
+            ingredient.Parent = null;
         }      
     }
 }

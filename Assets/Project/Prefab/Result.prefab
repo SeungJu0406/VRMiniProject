@@ -164,4 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipeData: {fileID: 11400000, guid: 9abb504b180a56c4b92481da51063c41, type: 2}
+  bottomData: {fileID: 11400000, guid: d3aa9d610f0dd754b95fceec641b16ae, type: 2}
+  topData: {fileID: 11400000, guid: 8b3b96a0b48fe614185aa9fbb978b7bb, type: 2}
   resultList: []

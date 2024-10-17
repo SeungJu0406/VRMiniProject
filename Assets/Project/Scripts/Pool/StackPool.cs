@@ -6,31 +6,31 @@ public class StackPool : MonoBehaviour
 {
     public static StackPool Instance;
 
-    [SerializeField] BurgerStack stackPrefab;
-    [SerializeField] int size = 5;
+    [SerializeField] BurgerStack _stackPrefab;
+    [SerializeField] int _size = 5;
 
-    Queue<BurgerStack> pool;
+    Queue<BurgerStack> _pool;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        pool =  new Queue<BurgerStack>(size);
-        for(int i =  0; i < size; i++)
+        _pool =  new Queue<BurgerStack>(_size);
+        for(int i =  0; i < _size; i++)
         {
-            BurgerStack instance = Instantiate(stackPrefab);
+            BurgerStack instance = Instantiate(_stackPrefab);
             instance.gameObject.SetActive(false);
             instance.transform.SetParent(transform);
-            pool.Enqueue(instance); 
+            _pool.Enqueue(instance); 
         } 
     }
 
     public BurgerStack GetPool(Transform getterTransform)
     {
-        if(pool.Count > 0)
+        if(_pool.Count > 0)
         {
-            BurgerStack instance = pool.Dequeue();
+            BurgerStack instance = _pool.Dequeue();
             instance.transform.position = getterTransform.position;
             instance.transform.rotation = getterTransform.rotation;
             instance.transform.SetParent(getterTransform);
@@ -40,7 +40,7 @@ public class StackPool : MonoBehaviour
         }
         else
         {
-            BurgerStack instance = Instantiate(stackPrefab);
+            BurgerStack instance = Instantiate(_stackPrefab);
             instance.transform.position = getterTransform.position;
             instance.transform.rotation = getterTransform.rotation;
             instance.transform.SetParent(getterTransform);
@@ -53,6 +53,6 @@ public class StackPool : MonoBehaviour
     {
         instance.transform.SetParent(transform);
         instance.gameObject.SetActive(false);
-        pool.Enqueue(instance);
+        _pool.Enqueue(instance);
     }
 }

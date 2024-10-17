@@ -318,11 +318,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4453e3530442fa342a6e1bd2669190b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabInteractable: {fileID: 0}
-  data: {fileID: 11400000, guid: d3aa9d610f0dd754b95fceec641b16ae, type: 2}
-  stackPivot: {fileID: 0}
-  parent: {fileID: 0}
-  child: {fileID: 0}
+  Data: {fileID: 11400000, guid: d3aa9d610f0dd754b95fceec641b16ae, type: 2}
+  StackPivot: {fileID: 8176812672479325708}
+  GrabInteractable: {fileID: 0}
+  Parent: {fileID: 0}
+  Child: {fileID: 0}
 --- !u!1 &7368111912216368036
 GameObject:
   m_ObjectHideFlags: 0

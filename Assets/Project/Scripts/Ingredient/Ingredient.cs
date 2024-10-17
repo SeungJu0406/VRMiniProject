@@ -6,16 +6,16 @@ using UnityEngine.XR.Interaction.Toolkit.Filtering;
 
 public class Ingredient : MonoBehaviour
 {
-    [SerializeField] public XRGrabInteractable grabInteractable;
-    [SerializeField] public IngredientData data;
-    [SerializeField] public Transform stackPivot;
+    [SerializeField] public IngredientData Data;
+    [SerializeField] public Transform StackPivot;
+    [SerializeField] public XRGrabInteractable GrabInteractable;
     [Header("스택")]
-    [SerializeField] public Ingredient parent;
-    [SerializeField] public Ingredient child;
+    [SerializeField] public Ingredient Parent;
+    [SerializeField] public Ingredient Child;
 
-    int ingredientLayer;
-    int ignoreLayer;
-    int socketLayer;
+    int _ingredientLayer;
+    int _ignoreLayer;
+    int _socketLayer;
 
     InteractionLayerMask ingredientLayerMask;
     InteractionLayerMask ignoreLayerMask;
@@ -23,20 +23,20 @@ public class Ingredient : MonoBehaviour
     {
         InitLayer();
 
-        grabInteractable = GetComponent<XRGrabInteractable>();  
+        GrabInteractable = GetComponent<XRGrabInteractable>();  
     }
     public void OnSelectEntered(SelectEnterEventArgs args)
     {
-        if (args.interactorObject.transform.gameObject.layer != socketLayer)
+        if (args.interactorObject.transform.gameObject.layer != _socketLayer)
         {
-            gameObject.layer = ignoreLayer;
+            gameObject.layer = _ignoreLayer;
         }
     }
     public void OnSelectExited(SelectExitEventArgs args)
     {
-        if (args.interactorObject.transform.gameObject.layer != socketLayer)
+        if (args.interactorObject.transform.gameObject.layer != _socketLayer)
         {
-            gameObject.layer = ingredientLayer;
+            gameObject.layer = _ingredientLayer;
         }
     }
     public void SubscribePlateEvent(Plate plate)
@@ -55,20 +55,20 @@ public class Ingredient : MonoBehaviour
         if (plate.TopIngredient == this)
         {
             // 인터렉터블 활성화
-            grabInteractable.interactionLayers = ingredientLayerMask;
+            GrabInteractable.interactionLayers = ingredientLayerMask;
         }
         else
         {
             // 인터렉터블 비활성화
-            grabInteractable.interactionLayers = ignoreLayerMask;
+            GrabInteractable.interactionLayers = ignoreLayerMask;
         }
     }
 
     void InitLayer()
     {
-        ingredientLayer = LayerMask.NameToLayer("Ingredient");
-        ignoreLayer = LayerMask.NameToLayer("Ignore Collision");
-        socketLayer = LayerMask.NameToLayer("Socket");
+        _ingredientLayer = LayerMask.NameToLayer("Ingredient");
+        _ignoreLayer = LayerMask.NameToLayer("Ignore Collision");
+        _socketLayer = LayerMask.NameToLayer("Socket");
 
         ingredientLayerMask = InteractionLayerMask.GetMask("Ingredient");
         ignoreLayerMask = InteractionLayerMask.GetMask("Ignore Interactor");
