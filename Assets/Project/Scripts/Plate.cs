@@ -31,6 +31,8 @@ public class Plate : MonoBehaviour
         ProcessAddStack(ingredient);
 
         int index = _stackList.FindIndex(info => info.Data.Equals(ingredient.Data));
+        if (index >= _stackList.Count) return;
+
         if (index != -1)
         {          
             IngredientInfo temp = _stackList[index];
@@ -49,18 +51,19 @@ public class Plate : MonoBehaviour
     public void RemoveStack(Ingredient ingredient)
     {
         int index = _stackList.FindIndex(info => info.Data.Equals(ingredient.Data));
-        
-        if (_stackList[index].Count > 1)
+        if (index != -1)
         {
-            IngredientInfo temp = _stackList[index];
-            temp.Count--;
-            _stackList[index] = temp;
+            if (_stackList[index].Count > 1)
+            {
+                IngredientInfo temp = _stackList[index];
+                temp.Count--;
+                _stackList[index] = temp;
+            }
+            else if (_stackList[index].Count == 1)
+            {
+                _stackList.RemoveAt(index);
+            }
         }
-        else if (_stackList[index].Count == 1)
-        {
-            _stackList.RemoveAt(index);
-        }
-
         ProcessToRemoveStack(ingredient);
     }
     public string GetValueToString()

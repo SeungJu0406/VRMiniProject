@@ -24,13 +24,14 @@ public class RayAttachModifier : MonoBehaviour
         }
     }
 
-    private void OnSelectEntered(SelectEnterEventArgs arg0)
+    private void OnSelectEntered(SelectEnterEventArgs args)
     {
-        if (arg0.interactorObject is XRRayInteractor == false) return;
+        if (args.interactorObject is XRRayInteractor == false) return;
 
-        Transform atttachTransform = arg0.interactorObject.GetAttachTransform(selectInteractable);
-        Pose originAttachTransform = arg0.interactorObject.GetLocalAttachPoseOnSelect(selectInteractable);
+        Transform atttachTransform = args.interactorObject.GetAttachTransform(args.interactableObject);
+        Pose originAttachTransform = args.interactorObject.GetLocalAttachPoseOnSelect(args.interactableObject);
         atttachTransform.SetLocalPose(originAttachTransform);
+       
     }
 
 }

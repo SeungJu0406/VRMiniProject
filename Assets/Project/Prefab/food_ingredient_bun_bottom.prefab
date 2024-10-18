@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: -7511558181221131132}
   - component: {fileID: 2109727254}
   - component: {fileID: 2109727251}
-  - component: {fileID: 2109727252}
   - component: {fileID: 2109727253}
   - component: {fileID: 786878401967546639}
+  - component: {fileID: 2109727252}
   m_Layer: 6
   m_Name: food_ingredient_bun_bottom
   m_TagString: Untagged
@@ -118,18 +118,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.20000005, z: 0.5}
   m_Center: {x: 0, y: 0.10000001, z: 0}
---- !u!114 &2109727252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149155446097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3dbd3eae5b68a64aa18175a52d4b08a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2109727253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +311,18 @@ MonoBehaviour:
   GrabInteractable: {fileID: 0}
   Parent: {fileID: 0}
   Child: {fileID: 0}
+--- !u!114 &2109727252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3dbd3eae5b68a64aa18175a52d4b08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7368111912216368036
 GameObject:
   m_ObjectHideFlags: 0

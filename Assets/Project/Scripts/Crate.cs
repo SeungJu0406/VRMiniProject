@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Crate : MonoBehaviour
 {
-    [SerializeField] Ingredient _ingredientPrefab;
+    [SerializeField] XRInteractionManager manager;
+    [SerializeField] XRGrabInteractable grabInteractablePrefab;
+
+    private void Start()
+    {
+        manager = FindObjectOfType<XRInteractionManager>();
+    }
 
     public void OnSelectEntered(SelectEnterEventArgs args)
     {
-        Vector3 testPos = new Vector3(-0.2f, 0.7f, 1);
-
-
-        Ingredient instance = Instantiate(_ingredientPrefab, testPos ,Quaternion.identity);
-
-        // 생성한 재료가 자동으로 손에 잡히는 로직 구현
+        XRGrabInteractable instance = Instantiate(grabInteractablePrefab);
+        manager.SelectEnter(args.interactorObject, instance);
     }
+
 }

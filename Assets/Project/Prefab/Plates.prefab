@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 6441104071755367593}
   - component: {fileID: 6441104071755367598}
   - component: {fileID: -2526351666223368841}
-  - component: {fileID: 3475312060538922755}
+  - component: {fileID: 7571457575240068542}
   m_Layer: 0
   m_Name: Plates
   m_TagString: Untagged
@@ -401,7 +401,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 3
+    m_Bits: 9
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -434,8 +434,8 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3475312060538922755}
-        m_TargetAssemblyTypeName: PlatesCrate, Assembly-CSharp
+      - m_Target: {fileID: 7571457575240068542}
+        m_TargetAssemblyTypeName: Crate, Assembly-CSharp
         m_MethodName: OnSelectEntered
         m_Mode: 0
         m_Arguments:
@@ -497,7 +497,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3475312060538922755
+--- !u!114 &7571457575240068542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -506,7 +506,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6441104071755367599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf96d48903aaf44faa9ae35af65dd90, type: 3}
+  m_Script: {fileID: 11500000, guid: 91e190df287e47645867e6dda01034e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _platePrefab: {fileID: 815983303, guid: 0450c9df9f7a5834fb9d1f3d2e6850dd, type: 3}
+  manager: {fileID: 0}
+  grabInteractablePrefab: {fileID: 815983304, guid: 0450c9df9f7a5834fb9d1f3d2e6850dd, type: 3}
