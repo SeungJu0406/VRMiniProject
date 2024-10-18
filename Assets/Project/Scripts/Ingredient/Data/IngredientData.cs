@@ -7,4 +7,5 @@ public class IngredientData : ScriptableObject
 {
     public int ID;
     public string Name;
+    public string EngName;
 }

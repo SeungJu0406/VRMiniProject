@@ -7,10 +7,13 @@ public class Result : MonoBehaviour
 {
     [Header("기본 레시피")]
     [SerializeField] RecipeData _recipeData;
+
     [Header("햄버거 빵 체크")]
     [SerializeField] IngredientData _bottomData;
     [SerializeField] IngredientData _topData;
 
+    [Header("주문 UI")]
+    [SerializeField] ResultUI _resultUI;
 
     [SerializeField] List<IngredientInfo> _resultList = new List<IngredientInfo>(10);
     Plate _resultPlate;
@@ -36,6 +39,7 @@ public class Result : MonoBehaviour
             if (plate.Equals(result))
             {
                 Debug.Log("성공!");
+                InitRecipe();
                 return;
             }
         }
@@ -54,8 +58,10 @@ public class Result : MonoBehaviour
     }
 
     void InitRecipe()
-    {     
-        for(int i = 0; i < _recipeData.RecipeList.Count; i++)
+    {
+        _resultList.Clear();
+        _resultUI.ClearResultUI();      
+        for (int i = 0; i < _recipeData.RecipeList.Count; i++)
         {
             _resultList.Add(_recipeData.RecipeList[i]);
         }
@@ -70,6 +76,7 @@ public class Result : MonoBehaviour
                 temp.Data = _resultList[i].Data;
                 temp.Count = randomCount;
                 _resultList[i] = temp;
+                _resultUI.UpdateResultUI(_resultList[i]);
             }
             else
             {
@@ -77,5 +84,10 @@ public class Result : MonoBehaviour
                 i--;
             }
         }
+    }
+
+    void ProcessSucess()
+    {
+
     }
 }
