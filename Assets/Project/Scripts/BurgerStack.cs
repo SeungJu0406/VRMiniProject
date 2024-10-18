@@ -18,19 +18,11 @@ public class BurgerStack : MonoBehaviour
         if (_ingredient == null) return;
         ProcessInStack();
     }
-    Coroutine createStackRoutine;
-    IEnumerator CreateStackRoutine(Ingredient ingredient)
-    {
-        yield return Manager.Delay.Get(0.2f);
-        _childStack = Pool.Stack?.GetPool(ingredient.StackPivot);
-        _childStack._plate = this._plate;
-        createStackRoutine = null;
 
-    }
 
     public void OnStackExit()
     {
-        if (createStackRoutine != null) 
+        if (createStackRoutine != null)
         {
             StopCoroutine(createStackRoutine);
             createStackRoutine = null;
@@ -47,12 +39,24 @@ public class BurgerStack : MonoBehaviour
             createStackRoutine = createStackRoutine == null ? StartCoroutine(CreateStackRoutine(_ingredient)) : createStackRoutine;
         }
     }
-
     void ProcessOutStack()
     {
         _plate.RemoveStack(_ingredient);
         _ingredient = null;
         if (_childStack != null)
+        {
+            _childStack._childStack = null;
             Pool.Stack?.ReturnPool(_childStack);
+        }
+    }
+
+    Coroutine createStackRoutine;
+    IEnumerator CreateStackRoutine(Ingredient ingredient)
+    {
+        yield return Manager.Delay.GetDelay(0.2f);
+        _childStack = Pool.Stack?.GetPool(ingredient.StackPivot);
+        _childStack._plate = this._plate;
+        createStackRoutine = null;
+
     }
 }

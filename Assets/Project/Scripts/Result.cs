@@ -38,12 +38,11 @@ public class Result : MonoBehaviour
             string result = GetValueToString();
             if (plate.Equals(result))
             {
-                Debug.Log("성공!");
-                InitRecipe();
+                ProcessSucess();
                 return;
             }
         }
-        Debug.Log("실패");
+        ProcessFailed();
     }
 
     string GetValueToString()
@@ -60,7 +59,7 @@ public class Result : MonoBehaviour
     void InitRecipe()
     {
         _resultList.Clear();
-        _resultUI.ClearResultUI();      
+        _resultUI.ClearResultText();      
         for (int i = 0; i < _recipeData.RecipeList.Count; i++)
         {
             _resultList.Add(_recipeData.RecipeList[i]);
@@ -76,7 +75,7 @@ public class Result : MonoBehaviour
                 temp.Data = _resultList[i].Data;
                 temp.Count = randomCount;
                 _resultList[i] = temp;
-                _resultUI.UpdateResultUI(_resultList[i]);
+                _resultUI.UpdateResultText(_resultList[i]);
             }
             else
             {
@@ -88,6 +87,11 @@ public class Result : MonoBehaviour
 
     void ProcessSucess()
     {
-
+        _resultUI.UpdateSuccessText();
+        InitRecipe();
+    }
+    void ProcessFailed()
+    {
+        _resultUI.UpdateFailText();
     }
 }

@@ -28,7 +28,7 @@ public class StackPool : MonoBehaviour
 
     public BurgerStack GetPool(Transform getterTransform)
     {
-        if(_pool.Count > 0)
+        if (_pool.Count > 0)
         {
             BurgerStack instance = _pool.Dequeue();
             instance.transform.position = getterTransform.position;

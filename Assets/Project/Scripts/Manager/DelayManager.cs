@@ -14,9 +14,10 @@ public class DelayManager : MonoBehaviour
         else Destroy(gameObject);
 
         Dic.Add(0.2f, new WaitForSeconds(0.2f));
+        Dic.Add(5f, new WaitForSeconds(5f));
     }
     
-    public WaitForSeconds Get(float time)
+    public WaitForSeconds GetDelay(float time)
     {
         return Dic[time];
     }
