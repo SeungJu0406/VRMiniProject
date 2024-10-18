@@ -2,9 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class BurgerStack : MonoBehaviour
+public class BurgerSocket : MonoBehaviour
 {
-    [SerializeField] BurgerStack _childStack;
+    [SerializeField] BurgerSocket _childSocket;
     [SerializeField] Plate _plate;
     [SerializeField] Ingredient _ingredient;
     private void Awake()
@@ -43,10 +43,13 @@ public class BurgerStack : MonoBehaviour
     {
         _plate.RemoveStack(_ingredient);
         _ingredient = null;
-        if (_childStack != null)
+        if (_childSocket != null)
         {
-            _childStack._childStack = null;
-            Pool.Stack?.ReturnPool(_childStack);
+            _childSocket._childSocket = null;
+            if (Pool.Socket != null)
+            {
+                Pool.Socket.ReturnPool(_childSocket);
+            }
         }
     }
 
@@ -54,9 +57,8 @@ public class BurgerStack : MonoBehaviour
     IEnumerator CreateStackRoutine(Ingredient ingredient)
     {
         yield return Manager.Delay.GetDelay(0.2f);
-        _childStack = Pool.Stack?.GetPool(ingredient.StackPivot);
-        _childStack._plate = this._plate;
+        _childSocket = Pool.Socket.GetPool(ingredient.StackPivot);
+        _childSocket._plate = this._plate;
         createStackRoutine = null;
-
     }
 }

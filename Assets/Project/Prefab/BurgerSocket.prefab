@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3138277136575526188}
   - component: {fileID: 428821990}
   m_Layer: 8
-  m_Name: BurgerStack
+  m_Name: BurgerSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

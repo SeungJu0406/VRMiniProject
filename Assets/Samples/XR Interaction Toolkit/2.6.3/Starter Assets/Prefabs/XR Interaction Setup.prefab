@@ -444,19 +444,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 19064736505062540, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_RaycastMask.m_Bits
-      value: 2147483745
+      value: 2147484257
       objectReference: {fileID: 0}
     - target: {fileID: 19064736505062540, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 285389467476424711, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_RaycastMask.m_Bits
-      value: 2147483745
+      value: 2147484257
       objectReference: {fileID: 0}
     - target: {fileID: 285389467476424711, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Name
@@ -508,19 +508,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2434299456458490401, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_PhysicsLayerMask.m_Bits
-      value: 705
+      value: 513
       objectReference: {fileID: 0}
     - target: {fileID: 2434299456458490401, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
-      value: 3
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6045481230268494804, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_PhysicsLayerMask.m_Bits
-      value: 705
+      value: 513
       objectReference: {fileID: 0}
     - target: {fileID: 6045481230268494804, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
-      value: 3
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}

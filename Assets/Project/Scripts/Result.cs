@@ -88,10 +88,29 @@ public class Result : MonoBehaviour
     void ProcessSucess()
     {
         _resultUI.UpdateSuccessText();
+
+        // 성공 접시 삭제 연산
+        DeleteSuccessPlate();
+
         InitRecipe();
     }
     void ProcessFailed()
     {
         _resultUI.UpdateFailText();
+    }
+
+    void DeleteSuccessPlate()
+    {
+        // 탑부터 삭제
+        while (_resultPlate.TopIngredient != null) 
+        {
+            Ingredient curTop = _resultPlate.TopIngredient;
+            if (_resultPlate.TopIngredient.Parent != null)
+            {
+                _resultPlate.TopIngredient = _resultPlate.TopIngredient.Parent;
+            }
+            Destroy(curTop.gameObject);
+        }
+        Destroy(_resultPlate.gameObject);
     }
 }

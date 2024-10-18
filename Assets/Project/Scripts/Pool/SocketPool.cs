@@ -2,35 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StackPool : MonoBehaviour
+public class SocketPool : MonoBehaviour
 {
-    public static StackPool Instance;
+    public static SocketPool Instance;
 
-    [SerializeField] BurgerStack _stackPrefab;
+    [SerializeField] BurgerSocket _socketPrefab;
     [SerializeField] int _size = 5;
 
-    Queue<BurgerStack> _pool;
+    Queue<BurgerSocket> _pool;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        _pool =  new Queue<BurgerStack>(_size);
+        _pool =  new Queue<BurgerSocket>(_size);
         for(int i =  0; i < _size; i++)
         {
-            BurgerStack instance = Instantiate(_stackPrefab);
+            BurgerSocket instance = Instantiate(_socketPrefab);
             instance.gameObject.SetActive(false);
             instance.transform.SetParent(transform);
             _pool.Enqueue(instance); 
         } 
     }
 
-    public BurgerStack GetPool(Transform getterTransform)
+    public BurgerSocket GetPool(Transform getterTransform)
     {
         if (_pool.Count > 0)
         {
-            BurgerStack instance = _pool.Dequeue();
+            BurgerSocket instance = _pool.Dequeue();
             instance.transform.position = getterTransform.position;
             instance.transform.rotation = getterTransform.rotation;
             instance.transform.SetParent(getterTransform);
@@ -40,7 +40,7 @@ public class StackPool : MonoBehaviour
         }
         else
         {
-            BurgerStack instance = Instantiate(_stackPrefab);
+            BurgerSocket instance = Instantiate(_socketPrefab);
             instance.transform.position = getterTransform.position;
             instance.transform.rotation = getterTransform.rotation;
             instance.transform.SetParent(getterTransform);
@@ -49,7 +49,7 @@ public class StackPool : MonoBehaviour
         }
     }
 
-    public void ReturnPool(BurgerStack instance)
+    public void ReturnPool(BurgerSocket instance)
     {
         instance.transform.SetParent(transform);
         instance.gameObject.SetActive(false);
