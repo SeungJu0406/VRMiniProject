@@ -79,6 +79,8 @@ public class Plate : MonoBehaviour
 
     void ProcessAddStack(Ingredient ingredient)
     {
+        if (ingredient == null) return;
+
         ingredient.SubscribePlateEvent(this);
 
         ingredient.Parent = TopIngredient;
@@ -95,6 +97,8 @@ public class Plate : MonoBehaviour
     }
     void ProcessToRemoveStack(Ingredient ingredient)
     {
+        if(ingredient == null) return;
+
         ingredient.UnSubscribePlateEvent(this);
 
         if (_stackList.Count == 0)
