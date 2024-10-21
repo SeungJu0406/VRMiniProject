@@ -16,7 +16,7 @@ public class Crate : MonoBehaviour
 
     public void OnSelectEntered(SelectEnterEventArgs args)
     {
-        XRGrabInteractable instance = Instantiate(grabInteractablePrefab);
+        XRGrabInteractable instance = Instantiate(grabInteractablePrefab,transform.position, transform.rotation);
         manager.SelectEnter(args.interactorObject, instance);
     }
 

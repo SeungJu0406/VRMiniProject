@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 3097513433201370989}
   - component: {fileID: 1479530678163804707}
   m_Layer: 0
-  m_Name: 2
+  m_Name: Order3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 1947284292072888863}
   - component: {fileID: 5728620576928748564}
   m_Layer: 0
-  m_Name: 1
+  m_Name: Order2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 5887517995270037793}
   - component: {fileID: 3655735450128909286}
   m_Layer: 0
-  m_Name: 0
+  m_Name: Order1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -959,7 +959,7 @@ GameObject:
   - component: {fileID: 486083305884347174}
   - component: {fileID: 8399033244947617067}
   m_Layer: 0
-  m_Name: 3
+  m_Name: Order4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1094,7 +1094,7 @@ GameObject:
   - component: {fileID: 1206859527401952913}
   - component: {fileID: 8265277775112390978}
   m_Layer: 0
-  m_Name: 4
+  m_Name: Order5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tomate X 1 '
+  m_text: 'Cheese X 1 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

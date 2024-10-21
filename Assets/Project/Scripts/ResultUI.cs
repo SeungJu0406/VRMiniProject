@@ -4,18 +4,21 @@ using System.Text;
 using TMPro;
 using UnityEngine;
 
-public class ResultUI : MonoBehaviour
+public class ResultUI : BaseUI
 {
     [SerializeField] List<TextMeshProUGUI> _resultUI = new List<TextMeshProUGUI>();
 
-    [SerializeField] TextMeshProUGUI _successUI;
+    [SerializeField] TextMeshProUGUI _successText;
 
     int _index;
     StringBuilder _sb = new StringBuilder();
 
-    private void Awake()
+     protected override void Awake()
     {
-        _successUI.gameObject.SetActive(false);
+        base.Awake();
+        InitOrderUIList();
+        _successText = GetUI<TextMeshProUGUI>("Success");
+        _successText.gameObject.SetActive(false);
     }
 
     public void UpdateResultText(IngredientInfo info)
@@ -38,21 +41,30 @@ public class ResultUI : MonoBehaviour
     {
         _sb.Clear();
         _sb.Append("Success");
-        _successUI.SetText(_sb);
+        _successText.SetText(_sb);
         StartCoroutine(SuccessTextRoutine());
     }
     public void UpdateFailText()
     {
         _sb.Clear();
         _sb.Append("Fail");
-        _successUI.SetText(_sb);
+        _successText.SetText(_sb);
         StartCoroutine(SuccessTextRoutine());
     }
     IEnumerator SuccessTextRoutine()
     {
-        _successUI.gameObject.SetActive(true);
+        _successText.gameObject.SetActive(true);
         yield return Manager.Delay.GetDelay(5f);
-        _successUI.gameObject.SetActive(false);
+        _successText.gameObject.SetActive(false);
+    }
 
+
+    void InitOrderUIList()
+    {
+        _resultUI.Add(GetUI<TextMeshProUGUI>("Order1"));
+        _resultUI.Add(GetUI<TextMeshProUGUI>("Order2"));
+        _resultUI.Add(GetUI<TextMeshProUGUI>("Order3"));
+        _resultUI.Add(GetUI<TextMeshProUGUI>("Order4"));
+        _resultUI.Add(GetUI<TextMeshProUGUI>("Order5"));
     }
 }

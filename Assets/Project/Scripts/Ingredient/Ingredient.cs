@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.Events;
@@ -31,12 +32,23 @@ public class Ingredient : MonoBehaviour
         {
             gameObject.layer = _ignoreLayer;
         }
+
+        if(_lifeTimeRoutine != null)
+        {
+            StopCoroutine(_lifeTimeRoutine);
+            _lifeTimeRoutine = null;
+        }
     }
     public void OnSelectExited(SelectExitEventArgs args)
     {
         if (args.interactorObject.transform.gameObject.layer != _socketLayer)
         {
             gameObject.layer = _ingredientLayer;
+        }
+
+        if(_lifeTimeRoutine == null)
+        {
+            _lifeTimeRoutine = StartCoroutine(LifeTimeRoutine());
         }
     }
     public void SubscribePlateEvent(Plate plate)
@@ -62,6 +74,13 @@ public class Ingredient : MonoBehaviour
             // 인터렉터블 비활성화
             GrabInteractable.interactionLayers = ignoreLayerMask;
         }
+    }
+
+    Coroutine _lifeTimeRoutine;
+    IEnumerator LifeTimeRoutine()
+    {
+        yield return Manager.Delay.GetDelay(5f);
+        Destroy(gameObject);
     }
 
     void InitLayer()

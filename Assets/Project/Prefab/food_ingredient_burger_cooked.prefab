@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: -8679921383154817045}
   - component: {fileID: -5754084199372789682}
   - component: {fileID: -7511558181221131132}
+  - component: {fileID: 4566534818023842057}
   - component: {fileID: 2104221444}
   - component: {fileID: 2104221441}
   - component: {fileID: 2104221442}
   - component: {fileID: 2104221443}
-  - component: {fileID: 8925719402712234180}
   m_Layer: 6
   m_Name: food_ingredient_burger_cooked
   m_TagString: Untagged
@@ -89,6 +89,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4566534818023842057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71378db8dcc9dae40a6202d7701eb6c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: 58fb26fd37473684c9a38241affd2109, type: 2}
+  StackPivot: {fileID: 2218394596188462735}
+  GrabInteractable: {fileID: 0}
+  Parent: {fileID: 0}
+  Child: {fileID: 0}
+  MaxCookTime: 10
+  CurCookTime: 0
+  NextPatty: {fileID: 2726198491611910869, guid: 7c8092fe37520f54d90b303f8083db22, type: 3}
 --- !u!54 &2104221444
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -181,7 +201,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8925719402712234180}
+      - m_Target: {fileID: 4566534818023842057}
         m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
         m_MethodName: OnSelectEntered
         m_Mode: 0
@@ -196,7 +216,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8925719402712234180}
+      - m_Target: {fileID: 4566534818023842057}
         m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
         m_MethodName: OnSelectExited
         m_Mode: 0
@@ -306,23 +326,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &8925719402712234180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149155446097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4453e3530442fa342a6e1bd2669190b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: 58fb26fd37473684c9a38241affd2109, type: 2}
-  StackPivot: {fileID: 2218394596188462735}
-  GrabInteractable: {fileID: 0}
-  Parent: {fileID: 0}
-  Child: {fileID: 0}
 --- !u!1 &1432479022554249612
 GameObject:
   m_ObjectHideFlags: 0

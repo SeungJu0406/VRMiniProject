@@ -22,7 +22,7 @@ public class Result : MonoBehaviour
 
     protected virtual void Awake()
     {
-        _resultUI = GetComponent<ResultUI>();
+        _resultUI = GetComponentInChildren<ResultUI>();
     }
 
     protected virtual void Start()

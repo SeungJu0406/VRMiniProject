@@ -5,6 +5,7 @@ using UnityEngine;
 using Unity.VisualScripting;
 using UnityEngine.Events;
 using System.Text;
+using UnityEngine.XR.Interaction.Toolkit;
 
 
 [System.Serializable]
@@ -25,8 +26,35 @@ public class Plate : MonoBehaviour
     public Ingredient BottomIngredient { get {  return _bottomIngredient; } set { _bottomIngredient = value; OnChangeBottom?.Invoke(this); } } 
     public event UnityAction<Plate> OnChangeBottom;
 
+    int _plateLayer;
+    int _ignoreLayer;
+    int _socketLayer;
+
     StringBuilder _sb = new StringBuilder();
-    public void AddStack(Ingredient ingredient)
+
+    private void Awake()
+    {
+        _plateLayer = LayerMask.NameToLayer("Plate");
+        _ignoreLayer = LayerMask.NameToLayer("Ignore Collision");
+        _socketLayer = LayerMask.NameToLayer("Socket");
+    }
+
+    public void OnSelectedEnter(SelectEnterEventArgs args)
+    {
+        if (args.interactorObject.transform.gameObject.layer != _socketLayer)
+        {
+            gameObject.layer = _ignoreLayer;
+        }
+    }
+    public void OnSelectExited(SelectExitEventArgs args)
+    {
+        if (args.interactorObject.transform.gameObject.layer != _socketLayer)
+        {
+            gameObject.layer = _plateLayer;
+        }
+    }
+
+        public void AddStack(Ingredient ingredient)
     {
         ProcessAddStack(ingredient);
 

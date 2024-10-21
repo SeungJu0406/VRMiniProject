@@ -54,7 +54,7 @@ MonoBehaviour:
     m_Bits: 6
   m_AttachTransform: {fileID: 3138277136575526186}
   m_KeepSelectedTargetValid: 1
-  m_DisableVisualsWhenBlockedInGroup: 1
+  m_DisableVisualsWhenBlockedInGroup: 0
   m_StartingSelectedInteractable: {fileID: 0}
   m_StartingTargetFilter: {fileID: 0}
   m_HoverEntered:
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
-  m_ShowInteractableHoverMeshes: 1
+  m_ShowInteractableHoverMeshes: 0
   m_InteractableHoverMeshMaterial: {fileID: 0}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
@@ -143,6 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e4286d061ea9742b50bb73b68bcc17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childStack: {fileID: 0}
-  plate: {fileID: 0}
-  ingredient: {fileID: 0}
+  _childSocket: {fileID: 0}
+  _plate: {fileID: 0}
+  _ingredient: {fileID: 0}
