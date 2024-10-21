@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4127560836298521342}
   - component: {fileID: 4295941312616743929}
   - component: {fileID: 9030479982323193745}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: food_ingredient_burger_trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}

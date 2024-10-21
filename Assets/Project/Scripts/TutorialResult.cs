@@ -5,6 +5,8 @@ public class TutorialResult : Result
     [SerializeField] HingeJoint _doorJoint;
     [SerializeField] BoxCollider _handleCollider;
 
+    [SerializeField] DoorUI _doorUI;
+
     JointLimits _openDoorLimit;
     JointLimits _closeDoorLimit;
 
@@ -15,8 +17,7 @@ public class TutorialResult : Result
         _closeDoorLimit = _doorJoint.limits;
         _closeDoorLimit.min = 0;
         _closeDoorLimit.max = 0;
-        _doorJoint.limits = _closeDoorLimit;
-        _handleCollider.enabled = false; 
+        CloseDoor();
     }
 
     protected override void InitRecipe()
@@ -50,5 +51,12 @@ public class TutorialResult : Result
     {
         _doorJoint.limits = _openDoorLimit;
         _handleCollider.enabled = true ;
+        _doorUI.UpdateOpenText();
+    }
+    void CloseDoor()
+    {
+        _doorJoint.limits = _closeDoorLimit;
+        _handleCollider.enabled = false;
+        _doorUI.UpdateCloseText();
     }
 }

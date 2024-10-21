@@ -46,7 +46,7 @@ public class Ingredient : MonoBehaviour
             gameObject.layer = _ingredientLayer;
         }
 
-        if(_lifeTimeRoutine == null)
+        if(_lifeTimeRoutine == null && gameObject.activeSelf)
         {
             _lifeTimeRoutine = StartCoroutine(LifeTimeRoutine());
         }

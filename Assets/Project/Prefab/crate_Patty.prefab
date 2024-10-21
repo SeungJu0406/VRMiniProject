@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  grabInteractablePrefab: {fileID: 2104221443, guid: 4f91156b79231a6429aac8fc3b6d6ea1, type: 3}
+  grabInteractablePrefab: {fileID: 6829950546350945164, guid: 9666503434c5ce5498ed360b8e63e6d8, type: 3}
 --- !u!1 &1456454537186056516
 GameObject:
   m_ObjectHideFlags: 0
