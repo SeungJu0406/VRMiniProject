@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Linq;
 using System.Collections.Generic;
-using UnityEngine;
-using Unity.VisualScripting;
-using UnityEngine.Events;
 using System.Text;
+using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
 
@@ -23,7 +20,7 @@ public class Plate : MonoBehaviour
     public Ingredient TopIngredient { get { return _topIngredient; } set { _topIngredient = value; OnChangeTop?.Invoke(this); } }
     public event UnityAction<Plate> OnChangeTop;
     [SerializeField] Ingredient _bottomIngredient;
-    public Ingredient BottomIngredient { get {  return _bottomIngredient; } set { _bottomIngredient = value; OnChangeBottom?.Invoke(this); } } 
+    public Ingredient BottomIngredient { get { return _bottomIngredient; } set { _bottomIngredient = value; OnChangeBottom?.Invoke(this); } }
     public event UnityAction<Plate> OnChangeBottom;
 
     int _plateLayer;
@@ -54,7 +51,7 @@ public class Plate : MonoBehaviour
         }
     }
 
-        public void AddStack(Ingredient ingredient)
+    public void AddStack(Ingredient ingredient)
     {
         ProcessAddStack(ingredient);
 
@@ -62,7 +59,7 @@ public class Plate : MonoBehaviour
         if (index >= _stackList.Count) return;
 
         if (index != -1)
-        {          
+        {
             IngredientInfo temp = _stackList[index];
             temp.Count++;
             _stackList[index] = temp;
@@ -95,10 +92,10 @@ public class Plate : MonoBehaviour
         ProcessToRemoveStack(ingredient);
     }
     public string GetValueToString()
-    { 
-        _stackList.Sort((s1,s2) => s1.Data.ID.CompareTo(s2.Data.ID));
+    {
+        _stackList.Sort((s1, s2) => s1.Data.ID.CompareTo(s2.Data.ID));
         _sb.Clear();
-        foreach (IngredientInfo ingredient in _stackList) 
+        foreach (IngredientInfo ingredient in _stackList)
         {
             _sb.Append($"{ingredient.Data.Name},{ingredient.Count}");
         }
@@ -113,7 +110,7 @@ public class Plate : MonoBehaviour
 
         ingredient.Parent = TopIngredient;
         if (ingredient.Parent != null)
-        {        
+        {
             ingredient.Parent.Child = ingredient;
         }
 
@@ -121,21 +118,21 @@ public class Plate : MonoBehaviour
             BottomIngredient = ingredient;
         TopIngredient = ingredient;
 
-        
+
     }
     void ProcessToRemoveStack(Ingredient ingredient)
     {
-        if(ingredient == null) return;
+        if (ingredient == null) return;
 
         ingredient.UnSubscribePlateEvent(this);
 
         if (_stackList.Count == 0)
             BottomIngredient = null;
         TopIngredient = ingredient.Parent;
-        if(ingredient.Parent != null)
+        if (ingredient.Parent != null)
         {
             ingredient.Parent.Child = null;
             ingredient.Parent = null;
-        }      
+        }
     }
 }

@@ -14,9 +14,10 @@ public class GameResult : Result
         }
 
         _resultList.Sort((s1, s2) => s1.Data.ID.CompareTo(s2.Data.ID));
+        int index = 0;
         for (int i = 1; i < _resultList.Count - 1; i++)
         {
-            int randomCount = Util.Random(0, 2);
+            int randomCount = _usableList[index++] == true ? Util.Random(0, 2) : 0;
             if (randomCount > 0)
             {
                 IngredientInfo temp = new IngredientInfo();

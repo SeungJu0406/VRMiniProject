@@ -8,8 +8,6 @@ public class DoorUI : BaseUI
 {
     TextMeshProUGUI _openText;
 
-    StringBuilder _sb = new StringBuilder();
-
     private void Start()
     {
         _openText = GetUI<TextMeshProUGUI>("OpenText");

@@ -5,6 +5,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Result : MonoBehaviour
 {
+    public enum IngredientType { CookedPatty, Lettuce, Onion, Tomate, Cheese}
+
+
     [Header("기본 레시피")]
     [SerializeField] protected RecipeData _recipeData;
 
@@ -15,7 +18,9 @@ public class Result : MonoBehaviour
     [Header("주문 UI")]
     [SerializeField] protected ResultUI _resultUI;
 
-    [SerializeField] protected List<IngredientInfo> _resultList = new List<IngredientInfo>(10);
+    [SerializeField] protected List<IngredientInfo> _resultList;
+
+    [SerializeField] protected List<bool> _usableList = new List<bool>(5);
     protected Plate _resultPlate;
 
     protected StringBuilder _sb = new StringBuilder();
@@ -23,6 +28,14 @@ public class Result : MonoBehaviour
     protected virtual void Awake()
     {
         _resultUI = GetComponentInChildren<ResultUI>();
+
+        _resultList = new List<IngredientInfo>(_recipeData.RecipeList.Count);
+        _usableList = new List<bool>(_recipeData.RecipeList.Count - 2);
+
+        for (int i = 0; i < _usableList.Capacity; i++) 
+        {
+            _usableList.Add(true);
+        }
     }
 
     protected virtual void Start()
@@ -73,5 +86,12 @@ public class Result : MonoBehaviour
         _resultUI.UpdateFailText();
     }
 
-
+    public bool GetUsableList(IngredientType type)
+    {
+        return _usableList[(int)type];
+    }
+    public void SetUsableList(IngredientType type , bool value)
+    {
+        _usableList[(int)type] = value;
+    }
 }

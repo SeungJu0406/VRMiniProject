@@ -203,8 +203,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Onion X 1 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7e9627ffd3e9315458954b62046d40f3, type: 2}
+  m_sharedMaterial: {fileID: 189679861791402272, guid: 7e9627ffd3e9315458954b62046d40f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -338,8 +338,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Lettuce X 1 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7e9627ffd3e9315458954b62046d40f3, type: 2}
+  m_sharedMaterial: {fileID: 189679861791402272, guid: 7e9627ffd3e9315458954b62046d40f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -880,8 +880,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Patty X 1 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7e9627ffd3e9315458954b62046d40f3, type: 2}
+  m_sharedMaterial: {fileID: 189679861791402272, guid: 7e9627ffd3e9315458954b62046d40f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1015,8 +1015,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Tomate X 1 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7e9627ffd3e9315458954b62046d40f3, type: 2}
+  m_sharedMaterial: {fileID: 189679861791402272, guid: 7e9627ffd3e9315458954b62046d40f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1150,8 +1150,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Cheese X 1 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7e9627ffd3e9315458954b62046d40f3, type: 2}
+  m_sharedMaterial: {fileID: 189679861791402272, guid: 7e9627ffd3e9315458954b62046d40f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1287,4 +1287,4 @@ MonoBehaviour:
   - {fileID: 1479530678163804707}
   - {fileID: 8399033244947617067}
   - {fileID: 8265277775112390978}
-  _successUI: {fileID: 586707423}
+  _successText: {fileID: 0}

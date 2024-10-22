@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class BaseUI : MonoBehaviour
@@ -6,6 +7,7 @@ public class BaseUI : MonoBehaviour
     private Dictionary<string, GameObject> _gameObjectDic;
     private Dictionary<(string, System.Type), Component> _componentDic;
 
+    protected StringBuilder _sb = new StringBuilder();
     protected virtual void Awake()
     {
         Bind();
@@ -58,5 +60,10 @@ public class BaseUI : MonoBehaviour
             _componentDic.Add(key, component);
             return component as T;
         }
+    }
+
+    protected int GetGameObjectCoint()
+    {
+        return _gameObjectDic.Count;
     }
 }

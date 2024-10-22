@@ -11,7 +11,7 @@ public class ResultUI : BaseUI
     [SerializeField] TextMeshProUGUI _successText;
 
     int _index;
-    StringBuilder _sb = new StringBuilder();
+   
 
      protected override void Awake()
     {
@@ -24,7 +24,7 @@ public class ResultUI : BaseUI
     public void UpdateResultText(IngredientInfo info)
     {
         _sb.Clear();
-        _sb.Append($"{info.Data.EngName} X {info.Count}");
+        _sb.Append($"{info.Data.Name} X {info.Count}");
         _resultUI[_index].SetText(_sb);
         _index++;
     }
